@@ -1,1 +1,17 @@
-<li *ngFor="let product of products"> {{product.name}} </li>
+<h4 *ngFor="let product of products"> {{product.Name}}   {{product.Price}}   {{product.createdAt}}     {{product.updatedAt}}</h4>
+
+<table ng-table="vm.tableParams" class="table" show-filter="true">
+ <th> Name </th> <th> Price </th> <th> created At </th> <th> updated At </th>
+    <tr *ngFor="let product of products">
+        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+            {{product.Name}}</td>
+        <td title="'Price'" filter="{ Price: 'currency'}" sortable="'age'">
+            {{product.Price}} </td>
+            <td title="'createdAt'" filter="{ createdAt: 'date'}" sortable="'createdAt'">
+            {{product.createdAt}} </td>
+          <td title="'updatedAt'" filter="{ updatedAt: 'date'}" sortable="'updatedAt'">
+            {{product.updateAt}} </td>
+    </tr>
+    
+    
+</table>
