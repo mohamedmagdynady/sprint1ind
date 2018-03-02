@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {StoreService} from './store.service';
+import {FormsModule} from '@angular/forms'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModule } from './@theme/theme.module';
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     AppRoutingModule,
+    FormsModule,
     HttpModule,
   ],
   bootstrap: [AppComponent],

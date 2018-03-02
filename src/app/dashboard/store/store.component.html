@@ -1,17 +1,41 @@
 
 
 <table ng-table="tableParams" class="table" show-filter="true">
- <th> Name </th> <th> Price </th> <th> created At </th> <th> updated At </th> <th> <button class="btn btn-hero-success"> <i class="fas fa-plus"></i></button></th>
+ <th>ID</th><th>Name</th> <th>Price</th> <th>Created at</th> <th>Updated at</th> <th>Seller Name</th> <th><button class="btn btn-hero-success"> <i class="fas fa-plus"></i></button></th>
+ 
     <tr *ngFor="let product of products">
-        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
-            {{product.Name}}</td>
-        <td title="'Price'" filter="{ Price: 'currency'}" sortable="'age'">
-            {{product.Price}} </td>
-            <td title="'createdAt'" filter="{ createdAt: 'date'}" sortable="'createdAt'">
+        <td title="'ID'" filter="{ID: 'integer'}" sortable="'ID'">
+            {{product._id}}</td>
+        <td title="'Name'" filter="{name: 'text'}" sortable="'name'">
+            {{product.name}}</td>
+        <td title="'Price'" filter="{Price: 'currency'}" sortable="'age'">
+            {{product.price}} </td>
+            <td title="'createdAt'" filter="{createdAt: 'date'}" sortable="'createdAt'">
             {{product.createdAt}} </td>
-          <td title="'updatedAt'" filter="{ updatedAt: 'date'}" sortable="'updatedAt'">
+          <td title="'updatedAt'" filter="{updatedAt: 'date'}" sortable="'updatedAt'">
             {{product.updateAt}} </td>
+            <td title="'sellername'" filter="{sellername: 'text'}" sortable="'sellername'">
+            {{product.sellername}} </td>
+
+<button class="btn btn-hero-danger" (click)="deleteProduct(product)">Delete <i class="fas fa-trash"></i></button>
+<button class="btn btn-hero-info" (click)="updateProduct(product._id)">Update <i class="fas fa-plus"></i></button>
+
     </tr>
-    
+
+
     
 </table>
+
+<hr>
+<tr >
+
+<td>Name <form> <input class="form-control" #n type="text" ></form> </td>
+
+<td>Price <form> <input class="form-control" #p type="number" min="0" ></form> </td>
+ 
+<td>Seller Name <form> <input class="form-control" #s type="text" ></form> </td>
+<td><button  class="btn btn-hero-success" (click)="createProduct(n.value,p.value,s.value)" >Create</button></td>
+
+</tr>
+
+   
